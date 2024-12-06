@@ -9,8 +9,8 @@ const limit = document.getElementById('limit');
 const guessText = document.querySelector(".guesstext")
 const guess = document.getElementById('guess')
 const displayText = document.getElementById('displaytext')
-// const submitLimit = document.getElementById('submitlimit');
-// const submitGuess = document.getElementById('submitguess');
+const submitLimit = document.getElementById('submitlimit');
+const submitGuess = document.getElementById('submitguess');
 
 
 rules.onclick = rulesOfGame;
