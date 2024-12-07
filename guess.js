@@ -16,7 +16,7 @@ const submitGuess = document.getElementById('submitguess');
 rules.onclick = rulesOfGame;
 
 
-limit.addEventListener('input', function () {
+submitLimit.addEventListener('click', function () {
     guessText.innerHTML = `Guess the number between 1 and ${limit.value}`;
     generateRandomNum();
 
@@ -25,7 +25,7 @@ limit.addEventListener('input', function () {
 // Initialize the text with the default value
 guessText.innerHTML = `Guess number between 1 and ${limit.value}`;
 
-guess.addEventListener('input', startGame);
+submitGuess.addEventListener('click', startGame);
 function rulesOfGame () {
     if (hiddenElement.style.display == "none" || hiddenElement.style.display === "") {
         hiddenElement.style.display = "block";
@@ -42,28 +42,31 @@ function generateRandomNum() {
 }
 
 function startGame() {
-    console.log("The startGame function has been called");
-    for (let i = 1; i <= 5; i++) {
-        if (guess.value == guessNumber) {
-            //call endGame()
-            console.log("you win");
-            break;
+    if (guess.value == guessNumber) {
+        displayText.innerHTML = "Congratulations, you guessed the number!"
+        endGame(true);
+    }
+    else {
+        guessCount -= 1;
+        if (guessCount <= 0) {
+            displayText.innerHTML = `Game over! The correct number was ${guessNumber} `
+            endGame(false);
         }
         else {
-            guessCount -= 1;
-            if (guessCount <= 0) {
-                //call endGame()
-                break
-            }
-            else {
-                console.log("WRONG GUESS! TRY AGAIN");
-            }
+            displayText.innerHTML = `WRONG GUESS! TRY AGAIN. YOU HAVE ${guessCount} GUESSES LEFT.`;
         }
     }
+
 }
 
-function endGame() {
-    // if guessCount > 0 then display the congratulations (vary it later)
-    // if guessCount == 0 then display the loss message (same message in every game)
+function endGame(win) {
+    if (win) {
+        console.log("You win! Congratulations!");
+    } else {
+        console.log("You lose! Better luck next time.");
+    }
+    guess.disabled = true;
+    submitGuess.disabled = true;
+
 }
 
