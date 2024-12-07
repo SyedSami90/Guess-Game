@@ -47,3 +47,7 @@ input {
     display: block;
     padding: 7px;
 }
+
+#restart {
+    display: none;
+}
