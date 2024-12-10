@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess Game</title>
+    <link rel="stylesheet" href="guessgame.css">
+</head>
+<body>
+    <main>
+        <div class="guesscontainer">
+            <button id="rules">RULES OF THE GAME</button>
+
+            <div class="hidden">
+                <ol>
+                    <li>Enter an upper bound (must be 2 or greater).</li>
+                    <li>Guess the number within 6 tries.</li>
+                    <li>After each guess, you'll be told if it's too high or too low.</li>
+                </ol>
+            </div>
+
+            <h3>Set the upper bound (default: 100)</h3>
+
+            <input type="number" required min="2" id="limit" value="100" placeholder="Enter upper bound">
+            <button id="submitlimit">Submit</button>
+
+            <h3 class="guesstext"></h3>
+
+            <input type="number" id="guess" required min="2" placeholder="Enter your guess">
+            <button id="submitguess">Submit</button>
+
+            <h3 id="displaytext"></h3>
+
+            <button id="restart">Play again?</button>
+        </div>
+    </main>
+    <script src="guessgame.js"></script>
+</body>
+</html>

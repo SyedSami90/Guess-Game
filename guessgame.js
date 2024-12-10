@@ -1,6 +1,5 @@
-let guessCount = 5;
+let guessCount = 6;
 let guessNumber = Math.round(Math.random() * 100) + 1; 
-console.log(guessNumber); // This will be the default random number 
 
 const rules = document.getElementById('rules');
 const hiddenElement = document.querySelector('.hidden');
@@ -14,7 +13,7 @@ const restartButton = document.getElementById('restart');
 
 rules.onclick = rulesOfGame;
 
-// Initialize the text with the default value
+//default is initialized
 guessText.innerHTML = `Guess a number between 1 and ${limit.value}`;
 
 submitLimit.addEventListener('click', function () {
@@ -27,7 +26,7 @@ submitLimit.addEventListener('click', function () {
     } else {
         guessText.innerHTML = `Guess the number between 1 and ${upperBound}`;
         generateRandomNum(upperBound);
-        guessCount = 5; // Reset guesses
+        guessCount = 6; // Reset guesses
         displayText.innerHTML = ""; // Clear any previous game messages
     }
 });
@@ -45,7 +44,7 @@ function rulesOfGame() {
 
 function generateRandomNum(upperBound = 100) {
     guessNumber = Math.floor(Math.random() * upperBound) + 1;
-    console.log(guessNumber); // Debugging: remove in production
+    console.log(guessNumber); // remove later
 }
 
 function startGame() {
@@ -67,7 +66,12 @@ function startGame() {
             displayText.innerHTML = `Game over! The correct number was ${guessNumber}`;
             endGame();
         } else {
-            displayText.innerHTML = `WRONG GUESS! TRY AGAIN. YOU HAVE ${guessCount} GUESSES LEFT.`;
+            if (userGuess < guessNumber) {
+                displayText.innerHTML = `Wrong guess! Try higher. You have ${guessCount} guesses left`;
+            }
+            else {
+                displayText.innerHTML = `Wrong guess! Try lower. You have ${guessCount} guesses left`;
+            }
         }
     }
 }
