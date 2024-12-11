@@ -20,8 +20,8 @@ submitLimit.addEventListener('click', function () {
     const upperBound = parseInt(limit.value, 10);
 
     // Validate the upper bound
-    if (isNaN(upperBound) || upperBound < 2) {
-        alert("Please enter a valid upper limit of 2 or greater.");
+    if (isNaN(upperBound) || upperBound < 1) {
+        alert("Please enter a valid upper limit of 1 or greater.");
         limit.value = "100"; // Reset to default
     } else {
         guessText.innerHTML = `Guess the number between 1 and ${upperBound}`;
@@ -51,8 +51,8 @@ function startGame() {
     const userGuess = parseInt(guess.value, 10);
 
     // Validate the user's guess
-    if (isNaN(userGuess) || userGuess < 2) {
-        alert("Please enter a valid number greater than or equal to 2.");
+    if (isNaN(userGuess) || userGuess < 1) {
+        alert("Please enter a valid number greater than or equal to 1.");
         guess.value = ""; // Clear invalid input
         return;
     }
