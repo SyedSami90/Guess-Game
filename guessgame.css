@@ -115,7 +115,7 @@ button:active {
 
 #restart {
     display: none;
-    width: 100%;
+    width: 50%;
 }
 
 #displaytext:empty {
