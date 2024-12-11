@@ -17,7 +17,6 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* align-items: center; */ /*No noticiable change*/
 }
 
 .guesscontainer {
@@ -113,11 +112,16 @@ button:active {
 
 #restart {
     display: none;
-    min-width: 63%;
 }
 
 #displaytext:empty {
     margin: 0;
+}
+
+@media screen and (max-width: 375px) {
+    #restart {
+        width: 63%;
+    }
 }
 
 
