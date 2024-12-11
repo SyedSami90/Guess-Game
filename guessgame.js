@@ -80,6 +80,7 @@ function endGame() {
     restartButton.style.display = "block"; 
     guess.disabled = true;
     submitGuess.disabled = true;
+    guessCount = 6;
 }
 
 function restartGame() {
